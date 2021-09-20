@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+      <link
+         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap"
+         rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <header>
+       <h1>Countries API</h1>
+       <hr>
+   </header>
+   <body>
+    
+
+    <div class="box-forms">
+        <div class="box">
+      <form id="searchForm" class="searchForm" >
+        <div class="input-container">   
+             <label>Search:</label><br>
+        <input type="text" id="searchInput" name="searchInput" minlength="2" required >
+        <button type="button" class="search" id="searchButton" onclick="getSearchResults($('#searchInput').val())">Search</button>
+         </div>
+        
+      </form>
+
+      <label for="filter">Choose a filter option:</label>
+      <select name="filter" id="filter" onchange="showInput(this.value);">
+         <option value="region">Region</option>
+         <option value="population">Population</option>
+         <option value="languages">Language</option>
+         <option value="timezones">Time Zone</option>
+         <option value="currencies">Currencies</option>
+      </select>
+
+     
+      <form id="filterForm" class="filterForm">
+        <div class="input-container">
+            <label id="filterInputLabel">Filter:</label><br>
+         <input id="filterInput" name="filterInput" type="text" minlength="2" maxlength="100" required>
+         
+
+        
+        <label class="filterInput2" style="display:none">Maximum value:</label>
+         <input class="filterInput2" name="filterInput2" type="text" style="display:none">
+         <button type="button" class="filter" autocomplete="off" id="filterButton" onclick="getFilterResults($('#filterInput').val(),$('#filterInput2').val())">Filter</button>
+        
+                  </div>
+         
+         
+      </form> 
+    </div>
+    </div>
+    <div class="allCountries"></div>
+      <div class="searchContainer"></div>
+      <div class="filterContainer"></div>
+      <div class="seeCountryContainer"></div>
+    
+      <script src="app.js"></script>
+   </body>
+</html>
